@@ -49,10 +49,3 @@ This app is ideal for organizations managing multiple workstations and shift rou
 The app helps ensure efficient staffing while offering flexibility to address unforeseen circumstances, such as sudden employee unavailability or last-minute station changes.  
 
 ---
-
-## **Getting Started**  
-To set up and run the project locally:  
-
-1. Clone the repository:  
-   ```bash
-   git clone https://github.com/your-username/your-repo-name.git
