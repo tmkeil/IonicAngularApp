@@ -1,0 +1,59 @@
+<div class="ion-page">
+  <ion-header class="">
+    <ion-toolbar color="primary">
+      <div class="container">
+        <ion-buttons class="btns" slot="start">
+          <ion-button (click)="goHome()" class="btn">
+            <ion-icon class="ico" name="chevron-back"></ion-icon>
+            <p class="backText">Back</p>
+          </ion-button>
+        </ion-buttons>
+        <ion-title *ngIf="GroupList[groupIndex]!==undefined">{{GroupList[groupIndex].name}}</ion-title>
+      </div>
+
+    </ion-toolbar>
+    <!-- <ion-searchbar></ion-searchbar> -->
+  </ion-header>
+
+  <ion-content scrollY="false">
+    <div class="testA">
+      <div class="testB">
+        <ion-list>
+
+          <ion-item-group>
+            <ion-item-divider sticky="true">
+              <ion-label *ngIf="GroupList[groupIndex] !== undefined && GroupList[groupIndex] !== null">
+                {{GroupList[groupIndex].name}}
+              </ion-label>
+            </ion-item-divider>
+            <app-employee-list-item *ngFor="let item of GroupList[groupIndex]?.employees;
+                    let index = index; let last = last" [emp]="item" [grID1]="item.grID2" [groups]="GroupList"
+              (delete)="removeEmployee(item.id, item.grID2)">
+            </app-employee-list-item>
+          </ion-item-group>
+
+          <ion-item-group *ngFor="let m of collection">
+            <ion-item-divider sticky="true">
+              <ion-label>
+                {{m.grName}}
+              </ion-label>
+            </ion-item-divider>
+            <app-employee-list-item *ngFor="let e of m.employees;
+                    let index = index; let last = last" [emp]="e" [grID1]="e.grID2" [groups]="GroupList"
+                    (delete)="removeEmployee(e.id, e.grID2)">
+            </app-employee-list-item>
+          </ion-item-group>
+
+        </ion-list>
+      </div>
+
+      <ion-fab horizontal="center" vertical="bottom" class="fab" (click)="addEmployeeModal()">
+        <ion-fab-button>
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+    </div>
+
+  </ion-content>
+
+</div>

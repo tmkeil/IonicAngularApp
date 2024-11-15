@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar class="ion-align-items-center" color="primary">
+      <ion-title class="ion-text-center">
+        <p class="p1">{{ stationName }}</p>
+        <p class="p2">Edit</p>
+      </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-list inset="true">
+    <ion-item class="ion-margin-bottom">
+      <ion-input [(ngModel)]="stationName" placeholder="Station Name" label="Edit Station Name" labelPlacement="floating" ></ion-input>
+    </ion-item>
+    <!-- <ion-item class="ion-margin-bottom">
+      <ion-select aria-label="fruit" placeholder="Select fruit">
+        <ion-select-option value="apples">Apples</ion-select-option>
+        <ion-select-option value="oranges">Oranges</ion-select-option>
+        <ion-select-option value="bananas">Bananas</ion-select-option>
+      </ion-select>
+    </ion-item> -->
+    
+  </ion-list>
+  <ion-button [disabled]="stationName === undefined || stationName === null || stationName === ''" class="ion-margin ion-padding" expand="block" (click)="confirmModal()">Confirm</ion-button>
+  </ion-card>
+</ion-content>

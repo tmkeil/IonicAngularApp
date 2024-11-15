@@ -1,0 +1,24 @@
+
+.title{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+ion-title{
+    .p1{
+        margin: 0px;
+        padding: 0;
+        font-weight: bold;
+        font-size: 24px;
+        
+    }
+    .p2{
+        padding: 0px;
+        margin: 0px;
+        opacity: 0.75;
+        font-size: 0.875rem;
+        letter-spacing: 0.06em;
+        font-weight: 500;
+    }
+}

@@ -1,0 +1,107 @@
+.test{
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+    position: relative;
+  
+  
+    .wrapper {
+      margin: 0 auto;
+      height: 100%;
+      position: absolute;
+      width: 100%;
+      z-index: 0;
+  
+  
+      .column {
+      
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        position: relative;
+        
+      }
+    
+    }
+  
+    .email {
+      height: 100%;
+      width: 100%;  
+      overflow: hidden;
+      background: #fff;
+          
+    }
+  }
+  
+    .rounded {
+      z-index: 2;
+      box-shadow: 0px 6px 13px -5px rgb(0 0 0 / 28%);
+    }
+
+    ion-label{
+      padding: 16.5px;
+      white-space: nowrap;
+
+    }
+
+    ion-item{
+      overflow: visible;
+      z-index: 3;
+      position: relative;
+    }
+
+
+  .visible {
+    animation: popIn 0.3s ease forwards;
+  }
+  
+  @keyframes popIn {
+      0% {
+          transform: scale(0);
+          opacity: 0;
+      }
+      100% {
+          transform: scale(1);
+          opacity: 1;
+      }
+  }
+
+  @keyframes popOut {
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+
+.b{
+  padding-left: 20px;
+  padding-right: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.b1,
+.b2{
+  position: absolute;
+}
+.b1{
+  font-size: 32px;
+  color:#979797;
+
+}
+.b2{
+  font-size: 24px;
+
+  color: rgba(0, 90, 0, 0.61);
+
+
+}

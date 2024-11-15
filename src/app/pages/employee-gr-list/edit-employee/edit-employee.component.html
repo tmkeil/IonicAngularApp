@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar class="ion-align-items-center" color="primary">
+
+    <ion-buttons slot="start">
+      <ion-button (click)="confirmModal()">Back</ion-button>
+    </ion-buttons>
+
+    <ion-title class="ion-text-center">
+      <p class="p1">{{ employeeName }}</p>
+      <p class="p2">Edit</p>
+    </ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <ion-list inset="true">
+    <ion-item class="ion-margin-bottom">
+      <ion-input [(ngModel)]="employeeName" placeholder="Employee Name" label="Edit Employee Name"
+        labelPlacement="floating"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-list inset="true" lines="none">
+    <ion-item>
+      <swiper-container #swiper class="swiper" *ngIf="groupArr!==undefined"
+        slides-per-view="auto" free-mode="true" space-between="22">
+        <swiper-slide *ngFor="let chip of groupArr; let index = index">
+          <ion-chip (click)="clickGroupIndex(index, groupArr)"
+            [ngClass]="index === groupIndexStat ? 'selected' : 'other'" [color]="'secondary'"
+            [outline]="index === groupIndexStat ? 'false' : 'true'" class="chip-container ion-padding-horizontal">
+            <ion-label class="chip-label">{{ chip.name.length > 8 ? chip.name.substr(0, 8) + ' ...' : chip.name
+              }}</ion-label>
+          </ion-chip>
+        </swiper-slide>
+      </swiper-container>
+    </ion-item>
+  </ion-list>
+
+  <ion-list inset="true" *ngIf="groupArr!==undefined && groupIndexStat !== undefined">
+    <ion-item lines="inset" *ngFor="let a of groupArr[groupIndexStat].stations; let z = index">
+      <ion-checkbox (click)="changeStatus(groupIndexStat, z, groupArr)" [(ngModel)]="statusArray[groupIndexStat][z]"
+        slot="start"></ion-checkbox>
+      {{a.name}}
+    </ion-item>
+  </ion-list>
+
+
+
+
+  <ion-button [disabled]="employeeName === undefined || employeeName === null || employeeName === ''"
+    class="ion-margin-top ion-padding" expand="block" (click)="confirmModal()">Confirm</ion-button>
+
+</ion-content>

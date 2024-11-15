@@ -1,0 +1,15 @@
+<div class="test" #H>
+    <div class="wrapper" #wrapper>
+        <div class="column ion-text-right">
+            <ion-icon slot="icon-only" size="large" name="trash-outline" color="light"
+                class="ion-align-items-center ion-margin-end" #trash></ion-icon>
+        </div>
+    </div>
+    <ion-item class="email">
+        <div slot="start" class="b" (click)="toggleAvail(emp)">
+            <ion-icon class="b1" name="ellipse-outline"></ion-icon>
+            <ion-icon *ngIf="emp.activeGroup === id" class="b2" name="ellipse"></ion-icon>
+          </div>
+        <ion-label (click)="openEmployee()">{{emp.name}}</ion-label>
+    </ion-item>
+</div>

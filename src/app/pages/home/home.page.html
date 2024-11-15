@@ -1,0 +1,92 @@
+<!-- <app-menu></app-menu> -->
+<ion-split-pane contentId="main-content" [disabled]="!paneEnabled">
+  <ion-menu contentId="main-content" menuId="first">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title class="ion-text-center">Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle autoHide="false" menu="first">
+          <ion-item button class="ion-text-wrap" [routerLink]="['/home']" routerDirection="root"
+            routerLinkActive="active-item">
+            <ion-label>Home</ion-label>
+          </ion-item>
+          <ion-item button class="ion-text-wrap" [routerLink]="['/einteilung']" routerDirection="root"
+            routerLinkActive="active-item">
+            <ion-label>Einteilung</ion-label>
+          </ion-item>
+          <ion-item button class="ion-text-wrap" [routerLink]="['/instructions']" routerDirection="root"
+            routerLinkActive="active-item">
+            <ion-label>Instructions</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <div class="ion-page" id="main-content">
+    <ion-header class="">
+      <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+          <ion-menu-button menu="first"></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Home</ion-title>
+        <ion-buttons class="ion-padding-end" slot="end">
+          <ion-icon name="information-outline" style="font-size: 24px;"></ion-icon>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="ion-padding" scrollY="false">
+
+      <div class="abc">
+        <ion-list>
+          <ion-item-sliding *ngFor="let item of groupArr">
+
+            <ion-item-options side="start">
+              <ion-item-option (click)="saveGroupButton(item.grID1, item.name, item)">
+                <ion-icon slot="icon-only" name="save-outline" size='large' color='medium' button></ion-icon>
+              </ion-item-option>
+            </ion-item-options>
+
+
+            <ion-item lines="none">
+              <app-group-list [group]="item"></app-group-list>
+            </ion-item>
+
+
+
+            <ion-item-options side="end">
+              <ion-item-option (click)="deleteGroupButton(item.grID1)">
+                <ion-icon slot="icon-only" name="trash-outline" size='large' color="danger" button></ion-icon>
+              </ion-item-option>
+            </ion-item-options>
+
+          </ion-item-sliding>
+
+
+
+
+
+        </ion-list>
+
+        <ion-fab horizontal="center" vertical="bottom" [edge]="true" class="ion-fab">
+          <ion-fab-button>
+            <ion-icon name="add"></ion-icon>
+          </ion-fab-button>
+          <ion-fab-list side="top">
+            <ion-fab-button color="tertiary" (click)="addGroupModal()">
+              <ion-icon name="add-outline"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-button color="success" (click)="pickFiles()">
+              <ion-icon name="document-outline"></ion-icon>
+            </ion-fab-button>
+          </ion-fab-list>
+        </ion-fab>
+
+      </div>
+    </ion-content>
+  </div>
+</ion-split-pane>

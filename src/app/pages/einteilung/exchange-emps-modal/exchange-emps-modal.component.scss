@@ -1,0 +1,26 @@
+.chip-container {
+  display: inline-flex;
+}
+
+.selected{
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+}
+
+.other{
+  box-shadow: 0.2px 0.5px 0px rgba(0,0,0,0.1);
+}
+
+.optionList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.optionItem {
+  justify-content: space-evenly;
+}
+
+.non-clickable-chip {
+  pointer-events: none;
+  color: red;
+}

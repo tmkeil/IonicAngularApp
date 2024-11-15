@@ -1,0 +1,53 @@
+<!-- <app-menu></app-menu> -->
+<ion-split-pane contentId="main-content-eint" [disabled]="!paneEnabled">
+  <ion-menu contentId="main-content-eint" menuId="thi">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title class="ion-text-center">Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle autoHide="false" menu="thi">
+          <ion-item button class="ion-text-wrap" [routerLink]="['/home']" routerDirection="root"
+            routerLinkActive="active-item">
+            <ion-label>Home</ion-label>
+          </ion-item>
+          <ion-item button class="ion-text-wrap" [routerLink]="['/einteilung']" routerDirection="root"
+            routerLinkActive="active-item">
+            <ion-label>Einteilung</ion-label>
+          </ion-item>
+          <ion-item button class="ion-text-wrap" [routerLink]="['/instructions']" routerDirection="root"
+            routerLinkActive="active-item">
+            <ion-label>Instructions</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <div class="ion-page" id="main-content-eint">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+          <ion-menu-button menu="thi"></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Einteilung</ion-title>
+        <ion-buttons class="ion-padding-end" slot="end">
+          <ion-icon name="information-outline" style="font-size: 24px;"></ion-icon>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content scrollY="false" scrollX="false">
+      <div class="outer-container">
+        <div class="table-container" id="einteilungstabelle">
+          <table #tableRef>
+            <thead></thead>
+            <tbody (click)="handleTableMatrixClick($event)"></tbody>
+          </table>
+        </div>
+      </div>
+      <ion-button (click)="openPreferences()" class="responsive-button">Menü</ion-button>
+    </ion-content>
+  </div>
+</ion-split-pane>
