@@ -14,11 +14,24 @@ import {
   IonItem,
   IonLabel,
   IonSplitPane,
-  IonTabButton,
-  IonButton,
-  MenuController, IonFabButton, IonFab, ModalController, IonItemSliding, IonItemOptions, IonItemOption, IonCard, IonFabList } from '@ionic/angular/standalone';
+  MenuController,
+  IonFabButton,
+  IonFab,
+  ModalController,
+  IonItemSliding,
+  IonItemOptions,
+  IonItemOption,
+  IonFabList,
+} from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { informationOutline, add, trashOutline, saveOutline, addOutline, documentOutline } from 'ionicons/icons';
+import {
+  informationOutline,
+  add,
+  trashOutline,
+  saveOutline,
+  addOutline,
+  documentOutline,
+} from 'ionicons/icons';
 import { RouterModule } from '@angular/router';
 import { GroupListComponent } from './group-list/group-list.component';
 import { GroupService } from 'src/app/services/group.service';
@@ -34,14 +47,11 @@ import { FilePicker } from '@capawesome/capacitor-file-picker';
   standalone: true,
   imports: [
     IonFabList,
-    IonCard,
     IonItemOption,
     IonItemOptions,
     IonItemSliding,
     IonFab,
     IonFabButton,
-    IonButton,
-    IonTabButton,
     IonSplitPane,
     IonLabel,
     IonItem,
@@ -58,7 +68,6 @@ import { FilePicker } from '@capawesome/capacitor-file-picker';
     RouterModule,
     GroupListComponent,
     CommonModule,
-    SaveGroupModalComponent,
   ],
 })
 export class HomePage implements OnInit {
@@ -67,8 +76,14 @@ export class HomePage implements OnInit {
     private menuCtrl: MenuController,
     private groupService: GroupService
   ) {
-    addIcons({informationOutline,saveOutline,trashOutline,add,addOutline,documentOutline});
-
+    addIcons({
+      informationOutline,
+      saveOutline,
+      trashOutline,
+      add,
+      addOutline,
+      documentOutline,
+    });
 
     // this.groupArr = await this.groupService.getGList();
     console.log();
@@ -92,7 +107,6 @@ export class HomePage implements OnInit {
 
   async loadGroupList() {
     this.groupArr = await this.groupService.getGList();
-
   }
   ionViewWillLeave() {
     this.paneEnabled = false;
@@ -150,8 +164,7 @@ export class HomePage implements OnInit {
     }
   }
 
-
-  async syncNewGroup(groupObject: Group){
+  async syncNewGroup(groupObject: Group) {
     groupObject.employees = groupObject.employees.filter(
       (employee: Employee) => employee.grID2 === groupObject.grID1
     );
@@ -205,14 +218,13 @@ export class HomePage implements OnInit {
           employee.empStations = employee.empStations.concat(newEmpStations);
         });
       });
-
-    }else{
+    } else {
       groupArray.forEach((group: Group) => {
         group.employees.forEach((employee) => {
           employee.empStations.push({
             grID3: GrID1,
-            stations: [] as Station[]
-          })
+            stations: [] as Station[],
+          });
         });
       });
     }

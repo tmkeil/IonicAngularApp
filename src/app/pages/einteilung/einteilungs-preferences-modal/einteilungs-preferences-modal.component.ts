@@ -1,7 +1,14 @@
 import { Component, inject, Input, OnInit } from '@angular/core';
-import { IonContent, IonTabButton, IonButton, IonItem, IonLabel, IonInput, IonCard, IonCardContent } from "@ionic/angular/standalone";
-import { addIcons } from "ionicons";
-import { camera } from "ionicons/icons";
+import {
+  IonContent,
+  IonButton,
+  IonItem,
+  IonLabel,
+  IonInput,
+  IonCard,
+  IonCardContent,
+} from '@ionic/angular/standalone';
+import { addIcons } from 'ionicons';
 import { GroupService } from 'src/app/services/group.service';
 
 @Component({
@@ -9,7 +16,15 @@ import { GroupService } from 'src/app/services/group.service';
   templateUrl: './einteilungs-preferences-modal.component.html',
   styleUrls: ['./einteilungs-preferences-modal.component.scss'],
   standalone: true,
-  imports: [IonCardContent, IonCard, IonInput, IonLabel, IonItem, IonButton, IonTabButton, IonContent],
+  imports: [
+    IonCardContent,
+    IonCard,
+    IonInput,
+    IonLabel,
+    IonItem,
+    IonButton,
+    IonContent,
+  ],
 })
 export class EinteilungsPreferencesModalComponent implements OnInit {
   groupService = inject(GroupService);

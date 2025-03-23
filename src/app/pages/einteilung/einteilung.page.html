@@ -1,7 +1,7 @@
 <!-- <app-menu></app-menu> -->
 <ion-split-pane contentId="main-content-eint" [disabled]="!paneEnabled">
   <ion-menu contentId="main-content-eint" menuId="thi">
-    <ion-header>
+    <ion-header translucent="true">
       <ion-toolbar color="primary">
         <ion-title class="ion-text-center">Menu</ion-title>
       </ion-toolbar>
@@ -15,11 +15,7 @@
           </ion-item>
           <ion-item button class="ion-text-wrap" [routerLink]="['/einteilung']" routerDirection="root"
             routerLinkActive="active-item">
-            <ion-label>Einteilung</ion-label>
-          </ion-item>
-          <ion-item button class="ion-text-wrap" [routerLink]="['/instructions']" routerDirection="root"
-            routerLinkActive="active-item">
-            <ion-label>Instructions</ion-label>
+            <ion-label>Assignment</ion-label>
           </ion-item>
         </ion-menu-toggle>
       </ion-list>
@@ -27,15 +23,13 @@
   </ion-menu>
 
   <div class="ion-page" id="main-content-eint">
-    <ion-header>
+    <ion-header translucent="true">
       <ion-toolbar color="primary">
         <ion-buttons slot="start">
           <ion-menu-button menu="thi"></ion-menu-button>
         </ion-buttons>
-        <ion-title>Einteilung</ion-title>
-        <ion-buttons class="ion-padding-end" slot="end">
-          <ion-icon name="information-outline" style="font-size: 24px;"></ion-icon>
-        </ion-buttons>
+        <ion-title>Assignment</ion-title>
+
       </ion-toolbar>
     </ion-header>
     <ion-content scrollY="false" scrollX="false">
@@ -47,7 +41,7 @@
           </table>
         </div>
       </div>
-      <ion-button (click)="openPreferences()" class="responsive-button">Menü</ion-button>
+      <ion-button (click)="openPreferences()" class="responsive-button">Menu</ion-button>
     </ion-content>
   </div>
 </ion-split-pane>

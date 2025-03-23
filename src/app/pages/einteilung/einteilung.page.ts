@@ -9,7 +9,6 @@ import {
   IonContent,
   IonButtons,
   IonMenuButton,
-  IonIcon,
   IonMenu,
   IonList,
   IonMenuToggle,
@@ -18,7 +17,6 @@ import {
   IonSplitPane,
   MenuController,
   ModalController,
-  IonTabButton,
   IonButton,
 } from '@ionic/angular/standalone';
 import { RouterModule } from '@angular/router';
@@ -38,12 +36,10 @@ import { Employee } from './../../group.model';
   standalone: true,
   imports: [
     IonButton,
-    IonTabButton,
     IonSplitPane,
     IonLabel,
     IonItem,
     IonList,
-    IonIcon,
     IonButtons,
     IonHeader,
     IonToolbar,
@@ -135,42 +131,6 @@ export class EinteilungPage implements OnInit {
                  </tr>`;
     tableHead.insertAdjacentHTML('beforeend', THRow);
 
-    /*
-    GList: any[] = [
-    { name: 'G1', employees: [...], stations: [...], grID1: 1, assign: false },
-    { name: 'G2', employees: [...], stations: [...], grID1: 7, assign: true }  => In Groups (Employees aus dieser Gruppe sollen Stationen zugewiesen werden)
-    ]
-    ...emps:
-    [
-      {
-        Name:'Tobias', id: 5, avail: true, grID2: 2,
-        empStations: [
-                    {grID3: 1, stations: [{name: 'st1_1', stationID: 0, grID: 1, status: true}, {name: 'st1_2', stationID: 1, grID: 1, status: false}, ...] },
-                    {grID3: 2, stations: [{name: 'st2_1', stationID: 0, grID: 2, status: true}, {name: 'st2_2', stationID: 1, grID: 2, status: true}, ...] },
-                    ...
-                  ],
-      },
-      {
-        emp2
-      },
-      ...
-    ]
-    Auch Employees mit grID != x in Gruppe mit grID == x speichern, wenn die Emps Stationen in dieser Gruppe ausführen können
-    grID2: grID der Gruppe (grID1), in der der Emp natürlich zugehört.
-    grID3: grID der Gruppe, der die Stations zugehören
-    Wenn ein Emp keine stations einer fremden Gruppe ausführen kann, den emp aus dieser Gruppe wieder löschen (splice)
-
-    ...stats in GList nur Stations aus der eigenen Gruppe
-    ...stations:
-    [
-      {name: "st1", stationID: 2, grID: 2},
-      {name: "st2", stationID: 5, grID: 2}
-    ]
-
-    Groups: any[] = [
-      { emps: [...], stats: [...], grID1: ... }
-    ]
-    */
     //TableMatrix füllen
     let TableMatrix: any[] = [];
 
@@ -182,7 +142,7 @@ export class EinteilungPage implements OnInit {
           //Für jede Station (Reihe) ein Array mit Runden (Spalten erstellen)
           for (let j = 0; j < this.Groups[z].stations.length; j++) {
             TableMatrix[j + zahl2] = [];
-            //i == 0 (Stations-Name)
+            //i == 0 (Workplaces-Name)
             TableMatrix[j + zahl2][i] = this.Groups[z].stations[j];
           }
           zahl2 += this.Groups[z].stations.length;

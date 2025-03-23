@@ -9,7 +9,6 @@ import {
   IonButton,
   IonIcon,
   IonTitle,
-  IonSearchbar,
   IonContent,
   ModalController,
   IonList,
@@ -29,7 +28,6 @@ import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { Employee, Group, GroupCollection } from 'src/app/group.model';
 import { EmployeeListItemComponent } from './employee-list-item/employee-list-item.component';
-import { groupList } from 'src/app/group';
 
 @Component({
   selector: 'app-employee-gr-list',
@@ -48,7 +46,6 @@ import { groupList } from 'src/app/group';
     IonItem,
     IonList,
     IonContent,
-    IonSearchbar,
     IonTitle,
     IonIcon,
     IonButton,

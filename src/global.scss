@@ -28,3 +28,13 @@
 .active-item{
     border-left: 8px solid var(--ion-color-secondary);
 }
+
+// ion-header {
+//   padding-top: 20px !important;
+//   // padding-top: env(safe-area-inset-top); /* oder: var(--ion-safe-area-top) */
+// }
+
+ion-toolbar {
+  padding-top: 20px !important;
+  // padding-top: env(safe-area-inset-top); /* oder: var(--ion-safe-area-top) */
+}

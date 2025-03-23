@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header translucent="true">
   <ion-toolbar class="ion-align-items-center" color="primary">
       <ion-title class="ion-text-center">
         <p class="p1">{{ stationName }}</p>
@@ -20,7 +20,7 @@
         <ion-select-option value="bananas">Bananas</ion-select-option>
       </ion-select>
     </ion-item> -->
-    
+
   </ion-list>
   <ion-button [disabled]="stationName === undefined || stationName === null || stationName === ''" class="ion-margin ion-padding" expand="block" (click)="confirmModal()">Confirm</ion-button>
   </ion-card>

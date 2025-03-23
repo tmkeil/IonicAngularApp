@@ -1,73 +1,70 @@
-.btns{
+.btns {
+  padding-left: 0px;
+  margin-left: -8px;
+  .btn {
     padding-left: 0px;
-    margin-left: -8px;
-    .btn{
-        padding-left: 0px;
-        margin-left: 0px;
-        text-transform: none;
-
-    }
-
-}
-.backText{
-    padding-left: 1px;
-    margin: 0px;
-    font-size: 17px;
-    letter-spacing: normal;
+    margin-left: 0px;
+    text-transform: none;
+  }
 }
 
-.ico{
-    font-size: 27px;
-    padding-bottom: 1px;
-}
-ion-title{
-    padding-left: 0;
-    left: calc(83.8px);
+.backText {
+  padding-left: 1px;
+  margin: 0px;
+  font-size: 17px;
+  letter-spacing: normal;
 }
 
-.container{
-    display: flex;
-    flex-direction: row;
+.ico {
+  font-size: 27px;
+  padding-bottom: 1px;
 }
 
+ion-title {
+  padding-left: 0;
+  left: calc(83.8px);
+}
 
-
-
+.container {
+  display: flex;
+  flex-direction: row;
+}
 
 ion-list {
-    width: 100%;
-    padding: 0;
-    margin: 0;
-  }
-  ion-item{
-    width: 100%;
-  }
-.testB{
-    height: 100%;
-    width: 100%;
-    position: relative;
-    border-radius: 0 0 40px 40px;
-    overflow-y: scroll;
+  width: 100%;
+  padding: 0;
+  margin: 0;
 }
-  .testA{
-    height: 90%;
-    width: 100%;
-    position: relative;
-    border-radius: 0 0 40px 40px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    overflow: visible;
-  }
-  .fab{
-    position: absolute;
-    bottom: -35px;
-  }
-  .cart-item{
-    padding: 20px 30px;
-    margin: 0;
-  }
 
+ion-item {
+  width: 100%;
+}
 
-  app-station-list-item{
-    padding: 0;
-    margin: 0 auto;
-  }
+.testB {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  border-radius: 0 0 40px 40px;
+  overflow-y: scroll;
+}
+.testA {
+  height: 90%;
+  width: 100%;
+  position: relative;
+  border-radius: 0 0 40px 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: visible;
+}
+.fab {
+  position: absolute;
+  bottom: -35px;
+}
+.cart-item {
+  padding: 20px 30px;
+  margin: 0;
+}
+
+app-station-list-item {
+  padding: 0;
+  margin: 0 auto;
+}

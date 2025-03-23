@@ -20,7 +20,5 @@ bootstrapApplication(AppComponent, {
     provideRouter(routes, withComponentInputBinding()),
     importProvidersFrom(IonicStorageModule.forRoot()),
     Swiper
-    
-    
   ],
 });

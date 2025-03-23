@@ -9,7 +9,6 @@ import {
   IonButton,
   IonIcon,
   IonTitle,
-  IonSearchbar,
   IonContent,
   ModalController,
   IonList,
@@ -48,7 +47,6 @@ import { StationListItemComponent } from './station-list-item/station-list-item.
     IonItem,
     IonList,
     IonContent,
-    IonSearchbar,
     IonTitle,
     IonIcon,
     IonButton,
@@ -61,7 +59,6 @@ import { StationListItemComponent } from './station-list-item/station-list-item.
   ],
 })
 export class StationGrListPage implements OnInit {
-
   groupService = inject(GroupService);
   groupId!: number;
   groupIndex = -1;
@@ -75,9 +72,7 @@ export class StationGrListPage implements OnInit {
     addIcons({ chevronBack, add });
   }
 
-
   async ngOnInit() {
-
     this.groupService.newArray.subscribe((data) => {
       this.GroupList = data;
     });
@@ -95,8 +90,8 @@ export class StationGrListPage implements OnInit {
     this.navCtrl.navigateBack('/home');
   }
 
-  openStation(station: Station){
-    console.log("stat clicked ",station)
+  openStation(station: Station) {
+    console.log('stat clicked ', station);
     this.modalCtrl
       .create({
         component: EditStationComponent,
@@ -114,7 +109,6 @@ export class StationGrListPage implements OnInit {
         console.log(data.data, data.role);
       });
   }
-
 
   addStationModal() {
     this.modalCtrl
@@ -139,8 +133,4 @@ export class StationGrListPage implements OnInit {
     await this.groupService.deleteStation(statID, grID);
     this.changeDetector.detectChanges();
   }
-
-
-
-
-  }
+}

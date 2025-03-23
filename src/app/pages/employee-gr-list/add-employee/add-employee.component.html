@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header translucent="true">
   <ion-toolbar class="ion-align-items-center" color="primary">
       <ion-title class="ion-text-center">
         <p class="p2">New Employee</p>
@@ -19,7 +19,7 @@
         <ion-select-option value="bananas">Bananas</ion-select-option>
       </ion-select>
     </ion-item> -->
-    
+
   </ion-list>
   <ion-button [disabled]="employeeName === undefined || employeeName === null || employeeName === ''" class="ion-margin ion-padding" expand="block" (click)="confirmModal(groupId)">Add Employee</ion-button>
   </ion-card>
