@@ -1,5 +1,4 @@
 import {
-  AfterViewInit,
   Component,
   ElementRef,
   Input,
@@ -17,14 +16,10 @@ import {
   IonButton,
   IonLabel,
   IonItem,
-  IonCard,
   IonList,
   IonInput,
-  IonCardContent,
-  IonListHeader,
   IonCheckbox,
   IonChip,
-  IonRow,
 } from '@ionic/angular/standalone';
 import { Employee, Group } from 'src/app/group.model';
 import { FormsModule } from '@angular/forms';
@@ -43,14 +38,10 @@ register();
   styleUrls: ['./edit-employee.component.scss'],
   standalone: true,
   imports: [
-    IonRow,
     IonChip,
     IonCheckbox,
-    IonListHeader,
-    IonCardContent,
     IonInput,
     IonList,
-    IonCard,
     IonItem,
     IonLabel,
     IonButton,
@@ -64,7 +55,7 @@ register();
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class EditEmployeeComponent implements OnInit, AfterViewInit {
+export class EditEmployeeComponent implements OnInit {
   swiperModules = [IonicSlides];
   @Input() selectedEmployee!: Employee;
   employeeName!: string;
@@ -76,9 +67,9 @@ export class EditEmployeeComponent implements OnInit, AfterViewInit {
   constructor(private modalCtrl: ModalController, private swiper: Swiper) {}
 
   groupService = inject(GroupService);
-  groupArr: Group[] = [];
+  groupArr!: Group[];
   @ViewChild('swiper')
-  swiperRef: ElementRef | undefined;
+  swiperRef?: ElementRef;
   statusArray!: any[];
 
   async ngOnInit() {
@@ -109,9 +100,8 @@ export class EditEmployeeComponent implements OnInit, AfterViewInit {
       const grID3 = Obj[i].grID3;
       const grIndex = await this.groupService.getGroupIndexByGroupID(grID3);
       stats[grIndex] = [];
-      for (let j = 0; j < Obj[i].stations.length; j++) {
+      for (let j = 0; j < Obj[i].stations.length; j++)
         stats[grIndex][j] = Obj[i].stations[j].status;
-      }
     }
     this.statusArray = stats;
   }
@@ -122,11 +112,6 @@ export class EditEmployeeComponent implements OnInit, AfterViewInit {
     ].stations[z].status = !this.statusArray[groupIndexStat][z];
     await this.groupService.setStorage('groups', GroupArr);
     this.statusArray[groupIndexStat][z] = !this.statusArray[groupIndexStat][z];
-  }
-
-  ngAfterViewInit(): void {
-    this.swiper = new Swiper('swiper-container', {});
-    this.swiper.slideTo(4, 1000);
   }
 
   async loadGroupList() {

@@ -1,143 +1,98 @@
- ::ng-deep table th,
- ::ng-deep table td {
+ion-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
 
-     padding: 15px;
-     border: 1px solid #ddd;
-     text-align: center;
-     white-space: nowrap;
-     overflow: hidden;
-     text-overflow: ellipsis;
-     max-width: 120px;
-     cursor: pointer;
+::ng-deep table th,
+::ng-deep table td {
 
- }
-
- ::-webkit-scrollbar {
-     display: none;
- }
-
- .test {
-     height: 97vh;
-     width: 100vw;
-     position: relative;
-     padding-bottom: 5vh;
- }
-
- ion-content{
-    //  background-color: #68cdfc;
-     padding: 0px;
-     margin: 0px;
-
-     .outer-container {
-        // background-color: #fc6868;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-        width: 100%;
-        position: absolute;
-        padding: 2px;
-        margin: 0px;
-
-        .table-container {
-            overflow-y: auto;
-            overflow-x: auto;
-
-            max-width: 100%;
-            min-width: 25%;
-
-            max-height: 80%;
-
-            border-radius: 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin: 0px;
-
-        }
-
-
-
-
-
-    }
-
-
-
-
-
-
-
-
-
-
- }
-
- @media screen and (max-width: 1100px) {
-
-
-    ion-content{
-        .table-container {
-            position: absolute;
-             transform-origin: center center;
-             transform: rotate(-90deg);
-
-             width: 90vh !important;
-             max-width: 90vh !important;
-            // max-width: 100vh;
-            // min-width: 100vw;
-
-            // max-height: 34430vw;
-            // min-height: 30vw;
-
-            // border-radius: 20px;
-            // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            // margin: 0px;
-        }
-
-    }
+  padding: 15px;
+  border: 1px solid #ddd;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 120px;
+  cursor: pointer;
 
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
 
+ion-content {
+  //  background-color: #68cdfc;
+  padding: 0px;
+  margin: 0px;
 
+  .outer-container {
+    // background-color: #fc6868;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    padding: 2px;
+    margin: 0px;
 
+    .table-container {
+      overflow-y: auto;
+      overflow-x: auto;
+      max-width: 100%;
+      min-width: 25%;
+      max-height: 80%;
+      border-radius: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin: 0px;
+    }
+  }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+@media screen and (max-width: 1100px) {
+  ion-content {
+    .outer-container {
+      position: absolute;
+      transform: rotate(-90deg);
+      transform-origin: center center;
+    }
+    .table-container {
+      position: absolute;
+      height: 70%;
+      width: 70%;
+      width: 90vh !important;
+      max-width: 90vh !important;
+      max-height: 30vh !important;
+    }
+  }
+}
 
 
 
 .responsive-button {
   position: absolute;
-  transition: all 0.3s ease-in-out; /* Für sanfte Übergänge */
   font-size: 10px;
   margin: 0;
 }
 
-@media (max-width: 1100px) {  /* Wenn die Bildschirmbreite kleiner als X ist */
+@media (max-width: 1100px) {
   .responsive-button {
-    right: 0px;           /* Abstand vom rechten Rand */
-    top: 50%;              /* Vertikal zentrieren */
-    transform: translateY(-50%) rotate(-90deg); /* Vertikal zentrieren und 90° drehen */
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
     margin: 0;
   }
 }
 
-@media (min-width: 1100px) {  /* Wenn die Bildschirmbreite größer als X ist */
+@media (min-width: 1100px) {
   .responsive-button {
-    bottom: 5px;          /* Abstand vom unteren Rand */
-    left: 50%;             /* Horizontal zentrieren */
-    transform: translateX(-50%) rotate(0deg); /* Horizontal zentrieren und keine Drehung */
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%) rotate(0deg);
   }
 }
 
@@ -161,55 +116,50 @@
 
 
 
- ::ng-deep table {
-     font-size: 14px;
-     border-collapse: collapse;
-     text-align: center;
-     width: 100%;
- }
+::ng-deep table {
+  font-size: 14px;
+  border-collapse: collapse;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
 
- ::ng-deep table th {
-     position: sticky;
-     top: 0;
-     background: #66776d;
-     color: white;
- }
+::ng-deep table th {
+  position: sticky;
+  top: 0;
+  background: #66776d;
+  color: white;
+}
 
+ion-content {
+  --ion-safe-area-bottom: 10px;
+}
 
+::ng-deep table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
 
+::ng-deep table tr:nth-child(odd) {
+  background-color: #ddd;
+  ;
+}
 
+//::ng-deep wird verwendet, damit dynamisch hinzugefügtem Inhalt diese Stile ebenfalls
+//hinzugefügt werden
+::ng-deep td[changeEmp="true"] {
+  background-color: var(--ion-color-success);
+}
 
+::ng-deep td {
+  &[exchange="true"] {
+    background-color: var(--ion-color-success);
+  }
 
+  &[sameEmp="true"] {
+    background-color: #686868;
+  }
 
- ion-content {
-     --ion-safe-area-bottom: 10px;
- }
-
- ::ng-deep table tr:nth-child(even) {
-     background-color: #f2f2f2;
- }
-
- ::ng-deep table tr:nth-child(odd) {
-     background-color: #ddd;
-     ;
- }
-
- //::ng-deep wird verwendet, damit dynamisch hinzugefügtem Inhalt diese Stile ebenfalls
- //hinzugefügt werden
- ::ng-deep td[changeEmp="true"] {
-     background-color: var(--ion-color-success);
- }
-
- ::ng-deep td {
-     &[exchange="true"] {
-         background-color: var(--ion-color-success);
-     }
-
-     &[sameEmp="true"] {
-         background-color: #686868;
-     }
-
-     &[clickC="1"] {
-         background-color: #686868;
-     }
- }
+  &[clickC="1"] {
+    background-color: #686868;
+  }
+}

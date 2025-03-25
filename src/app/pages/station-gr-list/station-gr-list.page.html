@@ -1,34 +1,30 @@
-<div class="ion-page">
-  <ion-header translucent="true">
-    <ion-toolbar color="primary">
-      <div class="container">
-        <ion-buttons class="btns" slot="start">
-          <ion-button (click)="goHome()" class="btn">
-            <ion-icon class="ico" name="chevron-back"></ion-icon>
-            <p class="backText">Back</p>
-          </ion-button>
-        </ion-buttons>
-        <ion-title *ngIf="GroupList[groupIndex]!==undefined">{{ GroupList[groupIndex].name }}</ion-title>
-      </div>
-    </ion-toolbar>
-  </ion-header>
+<ion-header translucent="true">
+  <ion-toolbar color="primary">
+    <ion-buttons class="btns" slot="start">
+      <ion-button (click)="goHome()" class="btn">
+        <ion-icon class="ico" name="chevron-back"></ion-icon>
+        <p class="backText">Back</p>
+      </ion-button>
+    </ion-buttons>
+      <ion-title *ngIf="GroupList[groupIndex]!==undefined">{{ GroupList[groupIndex].name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-  <ion-content scrollY="false">
-    <div class="testA">
-      <div class="testB">
-        <ion-list>
-          <app-station-list-item *ngFor="let item of GroupList[groupIndex]?.stations;
+<ion-content scrollY="false">
+  <div class="testA">
+    <div class="testB">
+      <ion-list>
+        <app-station-list-item *ngFor="let item of GroupList[groupIndex]?.stations;
         let index = index; let last = last" [sta]="item" (delete)="removeStation(item.stationID, groupId)"
-            (click)="openStation(item)">
-          </app-station-list-item>
-        </ion-list>
-      </div>
-
-      <ion-fab horizontal="center" vertical="bottom" class="fab" (click)="addStationModal()">
-        <ion-fab-button>
-          <ion-icon name="add"></ion-icon>
-        </ion-fab-button>
-      </ion-fab>
+          (click)="openStation(item)">
+        </app-station-list-item>
+      </ion-list>
     </div>
-  </ion-content>
-</div>
+
+    <ion-fab horizontal="center" vertical="bottom" class="fab" (click)="addStationModal()">
+      <ion-fab-button>
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </div>
+</ion-content>

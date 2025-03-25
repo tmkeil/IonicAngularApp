@@ -1,15 +1,15 @@
 <ion-header translucent="true">
-  <ion-toolbar class="ion-align-items-center" color="primary">
-
-    <ion-buttons slot="start">
-      <ion-button (click)="confirmModal()">Back</ion-button>
+  <ion-toolbar color="primary">
+    <ion-buttons class="btns" slot="start">
+      <ion-button (click)="confirmModal()" class="btn">
+        <ion-icon class="ico" name="chevron-back"></ion-icon>
+        <p class="backText">Back</p>
+      </ion-button>
     </ion-buttons>
-
-    <ion-title class="ion-text-center">
+    <ion-title>
       <p class="p1">{{ employeeName }}</p>
       <p class="p2">Edit</p>
     </ion-title>
-
   </ion-toolbar>
 </ion-header>
 
@@ -21,8 +21,8 @@
     </ion-item>
   </ion-list>
 
-  <ion-list inset="true" lines="none">
-    <ion-item>
+  <ion-list inset="true" lines="none" class="chip-list">
+    <ion-item class="chip-item">
       <swiper-container #swiper class="swiper" *ngIf="groupArr!==undefined"
         slides-per-view="auto" free-mode="true" space-between="22">
         <swiper-slide *ngFor="let chip of groupArr; let index = index">
@@ -38,15 +38,12 @@
   </ion-list>
 
   <ion-list inset="true" *ngIf="groupArr!==undefined && groupIndexStat !== undefined">
-    <ion-item lines="inset" *ngFor="let a of groupArr[groupIndexStat].stations; let z = index">
-      <ion-checkbox (click)="changeStatus(groupIndexStat, z, groupArr)" [(ngModel)]="statusArray[groupIndexStat][z]"
+    <ion-item (click)="changeStatus(groupIndexStat, z, groupArr)" *ngFor="let a of groupArr[groupIndexStat].stations; let z = index">
+      <ion-checkbox [(ngModel)]="statusArray[groupIndexStat][z]"
         slot="start"></ion-checkbox>
       {{a.name}}
     </ion-item>
   </ion-list>
-
-
-
 
   <ion-button [disabled]="employeeName === undefined || employeeName === null || employeeName === ''"
     class="ion-margin-top ion-padding" expand="block" (click)="confirmModal()">Confirm</ion-button>

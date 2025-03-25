@@ -12,19 +12,14 @@ import {
   IonContent,
   ModalController,
   IonList,
-  IonItem,
   IonFab,
   IonFabButton,
   IonItemGroup,
   IonLabel,
-  IonItemDivider,
-  IonCard,
-  IonCardContent,
-  IonListHeader, IonTabButton } from '@ionic/angular/standalone';
+  IonItemDivider } from '@ionic/angular/standalone';
 import { GroupService } from 'src/app/services/group.service';
 import { addIcons } from 'ionicons';
 import { add, chevronBack } from 'ionicons/icons';
-import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { Employee, Group, GroupCollection } from 'src/app/group.model';
 import { EmployeeListItemComponent } from './employee-list-item/employee-list-item.component';
@@ -34,16 +29,12 @@ import { EmployeeListItemComponent } from './employee-list-item/employee-list-it
   templateUrl: './employee-gr-list.page.html',
   styleUrls: ['./employee-gr-list.page.scss'],
   standalone: true,
-  imports: [IonTabButton,
-    IonListHeader,
-    IonCardContent,
-    IonCard,
+  imports: [
     IonItemDivider,
     IonLabel,
     IonItemGroup,
     IonFabButton,
     IonFab,
-    IonItem,
     IonList,
     IonContent,
     IonTitle,
@@ -105,16 +96,13 @@ export class EmployeeGrListPage implements OnInit {
         componentProps: {
           groupId: this.groupId,
         },
-        initialBreakpoint: 0.5,
-        breakpoints: [0, 0.5],
+        initialBreakpoint: 1,
+        breakpoints: [0, 0.5, 1],
       })
       .then((modalEl) => {
         modalEl.present();
         return modalEl.onDidDismiss();
       })
-      .then((data) => {
-
-      });
   }
 
   async removeEmployee(empID: number, grID2: number) {

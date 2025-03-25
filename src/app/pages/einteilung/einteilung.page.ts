@@ -53,18 +53,17 @@ import { Employee } from './../../group.model';
     FormsModule,
   ],
 })
-export class EinteilungPage implements OnInit {
+export class EinteilungPage {
   constructor(
     private menuCtrl: MenuController,
     private groupService: GroupService,
     private modalCtrl: ModalController
   ) {
     addIcons({ informationOutline });
-
     this.loadGroupList();
   }
 
-  async ngOnInit() {
+  async ionViewWillEnter(){
     await this.loadGroupList();
     this.createTableMatrix();
 
@@ -78,18 +77,12 @@ export class EinteilungPage implements OnInit {
   }
 
   @ViewChild('tableRef', { static: true }) tableRef: ElementRef | undefined;
-
   Runden: number = 5;
   Groups: Group[] = [];
-
   paneEnabled = true;
 
   async loadGroupList() {
     this.Groups = await this.groupService.getGList();
-  }
-  ionViewWillEnter() {
-    this.paneEnabled = true;
-    this.menuCtrl.enable(true, 'thi');
   }
 
   ionViewWillLeave() {
@@ -108,7 +101,6 @@ export class EinteilungPage implements OnInit {
         modalEl.present();
         return modalEl.onDidDismiss();
       })
-      .then((data) => {});
   }
 
   async createTableMatrix() {
@@ -161,16 +153,6 @@ export class EinteilungPage implements OnInit {
         for (let a = 0; a < assignment.length; a++) {
           assignment[a] = activeEmps[assignment[a]];
         }
-        // if (i > 1) {
-        //   assignment = await this.checkVariety(
-        //     assignment,
-        //     TableMatrix,
-        //     i,
-        //     zahl3,
-        //     this.Groups[z].grID1,
-        //     this.Groups[z].stations
-        //   );
-        // }
         if (i > 0) {
           for (let a = 0; a < this.Groups[z].stations.length; a++) {
             TableMatrix[a + zahl3][i] = assignment[a];
@@ -394,9 +376,6 @@ export class EinteilungPage implements OnInit {
   }
 
   async PickAvailableEmployees2(employees: any, stations: any, grID1: number) {
-    console.log('pick emps:');
-    console.log(JSON.parse(JSON.stringify(employees)));
-
     function bpm(bpGraph: any, u: number, seen: any, matchR: any) {
       // Try every job one by one
       for (let v = 0; v < stations.length; v++) {
@@ -435,27 +414,20 @@ export class EinteilungPage implements OnInit {
       // applicant number assigned to job i,
       // the value -1 indicates nobody is assigned.
       let matchR = new Array(stations.length);
-
       // Initially all jobs are available
       for (let i = 0; i < stations.length; ++i) matchR[i] = -1;
-
       // Count of jobs assigned to applicants
       let result = 0;
-      //
       let anzahlEmps = A.length;
       let arr: any = [];
-      for (let i = 0; i < A.length; i++) {
+      for (let i = 0; i < A.length; i++)
         arr[i] = A[i];
-      }
-
       for (let u = 0; u < A.length; u++) {
-        //
         let randomIndexEmp = Math.floor(Math.random() * (anzahlEmps - u));
         if (arr[randomIndexEmp] == null) {
           arr.splice(randomIndexEmp, 1);
           continue;
         }
-
         let grID2 = arr[randomIndexEmp].grID2;
         let u2 = await employees.findIndex(
           (item: any) =>
@@ -475,14 +447,11 @@ export class EinteilungPage implements OnInit {
         // Find if the applicant 'u' can get a job
         if (bpm(bpGraph, u2, seen, matchR)) result++;
       }
-
       return matchR;
     };
 
     let bpGraph: any[] = [];
-
     let A = employees;
-
     for (let i = 0; i < A.length; i++) {
       bpGraph[i] = [];
       let grIndexEmp = await this.groupService.getGroupIndexByGroupID(
@@ -543,12 +512,9 @@ export class EinteilungPage implements OnInit {
         initialBreakpoint: 1,
         breakpoints: [0, 1],
       });
-
       await modal.present();
-
       // Warten bis das Modal geschlossen wird und die Daten erhalten
       const result = await modal.onDidDismiss();
-
       // Rückgabe der Daten aus dem Modal
       return result.data;
     };
@@ -563,7 +529,6 @@ export class EinteilungPage implements OnInit {
         //<td grIDEmp="${grIDEmp}" employee="${data_assigned_employee_id}" grIDStat="${grIDStat}" station="${TableMatrix[i][0].id}" runde="${j}" clickC="" sameEmp="" exchange=""
         let clickedStationID = parseInt(El.getAttribute('station'), 10);
         let clicked_grIDStat = +El.getAttribute('gridstat');
-
         let availableEmps: Employee[] = [];
         //Sammle alle Employees aller Gruppen, die die Station ausführen können
         for (let i = 0; i < this.Groups.length; i++) {
@@ -744,12 +709,10 @@ export class EinteilungPage implements OnInit {
     if (lastEl) {
       await checkDoubleClick(El);
       await checkChangeEmps(El, lastEl);
-
       reset_Clicks_Attributes();
       return;
     }
     El.setAttribute('clickC', '1');
-
     const markSameEmps = () => {
       let selEmpId = El.getAttribute('employee');
       let selGrIDEmp = El.getAttribute('grIDEmp');
@@ -872,7 +835,6 @@ export class EinteilungPage implements OnInit {
         }
       }
     };
-
     markSameEmps();
     await markChangeEmps();
   }

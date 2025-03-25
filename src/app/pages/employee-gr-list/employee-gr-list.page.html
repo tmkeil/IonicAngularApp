@@ -1,7 +1,5 @@
-<div class="ion-page">
-  <ion-header translucent="true" class="">
+  <ion-header translucent="true">
     <ion-toolbar color="primary">
-      <div class="container">
         <ion-buttons class="btns" slot="start">
           <ion-button (click)="goHome()" class="btn">
             <ion-icon class="ico" name="chevron-back"></ion-icon>
@@ -9,8 +7,6 @@
           </ion-button>
         </ion-buttons>
         <ion-title *ngIf="GroupList[groupIndex]!==undefined">{{GroupList[groupIndex].name}}</ion-title>
-      </div>
-
     </ion-toolbar>
   </ion-header>
 
@@ -54,5 +50,3 @@
     </div>
 
   </ion-content>
-
-</div>

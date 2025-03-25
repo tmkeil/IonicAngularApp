@@ -4,17 +4,13 @@ import {
   ModalController,
   IonContent,
   IonButton,
-  IonButtons,
   IonToolbar,
   IonHeader,
   IonTitle,
   IonInput,
   IonCard,
   IonItem,
-  IonTextarea,
-  IonLabel,
-  IonSelect,
-  IonSelectOption, IonList } from '@ionic/angular/standalone';
+  IonList } from '@ionic/angular/standalone';
 import { FormsModule } from '@angular/forms';
 import { Employee } from 'src/app/group.model';
 import { GroupService } from 'src/app/services/group.service';
@@ -25,21 +21,16 @@ import { GroupService } from 'src/app/services/group.service';
   styleUrls: ['./add-employee.component.scss'],
   standalone: true,
   imports: [IonList,
-    IonLabel,
-    IonTextarea,
     IonItem,
     IonCard,
     IonInput,
     IonTitle,
     IonHeader,
     IonToolbar,
-    IonButtons,
     IonButton,
     IonContent,
     CommonModule,
     FormsModule,
-    IonSelect,
-    IonSelectOption
   ],
 })
 export class AddEmployeeComponent {
@@ -74,9 +65,6 @@ export class AddEmployeeComponent {
     if (this.employeeName != null) {
       await this.groupService.addEmployee(this.newEmp, this.groupId);
       this.dismissModal();
-
     }
-
   }
-
 }

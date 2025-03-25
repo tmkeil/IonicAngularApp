@@ -12,14 +12,6 @@
     <ion-item class="ion-margin-bottom">
       <ion-input [(ngModel)]="employeeName"  placeholder="Employee Name" label="New Employee Name" labelPlacement="floating" ></ion-input>
     </ion-item>
-    <!-- <ion-item class="ion-margin-bottom">
-      <ion-select aria-label="fruit" placeholder="Select fruit">
-        <ion-select-option value="apples">Apples</ion-select-option>
-        <ion-select-option value="oranges">Oranges</ion-select-option>
-        <ion-select-option value="bananas">Bananas</ion-select-option>
-      </ion-select>
-    </ion-item> -->
-
   </ion-list>
   <ion-button [disabled]="employeeName === undefined || employeeName === null || employeeName === ''" class="ion-margin ion-padding" expand="block" (click)="confirmModal(groupId)">Add Employee</ion-button>
   </ion-card>

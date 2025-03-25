@@ -1,8 +1,15 @@
 .ion-page {
+  ion-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
   ion-content {
     --padding-top: 1.6rem;
     --padding-start: 0px;
     --padding-end: 0px;
+    background-color: #777777;
 
     .abc {
       margin: 0 auto;
@@ -48,7 +55,7 @@
         flex-direction: column;
         width: 100%;
 
-        background-color: rgb(255, 255, 255);
+        background-color: rgb(241, 241, 241);
         border-radius: 25px;
         padding-bottom: 2rem;
         padding-top: 2rem;
