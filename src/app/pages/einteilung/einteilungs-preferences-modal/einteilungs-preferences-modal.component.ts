@@ -4,11 +4,9 @@ import {
   IonButton,
   IonItem,
   IonLabel,
-  IonInput,
-  IonCard,
-  IonCardContent,
-} from '@ionic/angular/standalone';
+  IonInput, IonList } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
+import { Group } from 'src/app/group.model';
 import { GroupService } from 'src/app/services/group.service';
 
 @Component({
@@ -16,9 +14,7 @@ import { GroupService } from 'src/app/services/group.service';
   templateUrl: './einteilungs-preferences-modal.component.html',
   styleUrls: ['./einteilungs-preferences-modal.component.scss'],
   standalone: true,
-  imports: [
-    IonCardContent,
-    IonCard,
+  imports: [IonList,
     IonInput,
     IonLabel,
     IonItem,
@@ -33,6 +29,8 @@ export class EinteilungsPreferencesModalComponent implements OnInit {
   }
 
   @Input() rounds!: number;
+  @Input() matrix!: any[];
+  @Input() groups!: Group[];
 
   einteilung() {
     this.groupService.rounds.emit(this.value);
@@ -55,5 +53,15 @@ export class EinteilungsPreferencesModalComponent implements OnInit {
     if (this.value > 1) {
       this.value--;
     }
+  }
+
+
+  async sendTelegramMessages() {
+    console.log(JSON.parse(JSON.stringify(this.groups)));
+    const employee_station_pairs = await this.groupService.getEmployeeStationPairs(this.matrix, this.groups);
+    const assignedEmployees = employee_station_pairs.map(pair => pair.emp);
+
+    await this.groupService.getChatIds(assignedEmployees);
+    await this.groupService.sendTelegramMessages(employee_station_pairs);
   }
 }

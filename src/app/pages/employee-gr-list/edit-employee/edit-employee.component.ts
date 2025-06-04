@@ -59,9 +59,18 @@ export class EditEmployeeComponent implements OnInit {
   swiperModules = [IonicSlides];
   @Input() selectedEmployee!: Employee;
   employeeName!: string;
+  api_key!: string;
+
+  // Index of the employee in its own group array
   employeeIndex!: number;
+
+  // Index of the group in the group array, of the currently selected employee
+  groupIndex!: number;
+
+  // Index of the group in the group array, which is currently selected inside the "edit employee modal"
   groupIndexStat!: number;
-  groupIndexEmp!: number;
+
+  // Index of the currently selected group (in the "edit employee modal") inside the employee's empStations array
   empStationsIndex!: number;
 
   constructor(private modalCtrl: ModalController, private swiper: Swiper) {}
@@ -70,17 +79,18 @@ export class EditEmployeeComponent implements OnInit {
   groupArr!: Group[];
   @ViewChild('swiper')
   swiperRef?: ElementRef;
-  statusArray!: any[];
 
   async ngOnInit() {
-    this.loadGroupList();
+    await this.loadGroupList();
     this.employeeName = this.selectedEmployee.name;
-    this.groupIndexStat = await this.groupService.getGroupIndexByGroupID(
+    this.api_key = this.selectedEmployee.api_key;
+    this.groupIndex = await this.groupService.getGroupIndexByGroupID(
       this.selectedEmployee.grID2
     );
-    this.groupIndexEmp = await this.groupService.getGroupIndexByGroupID(
-      this.selectedEmployee.grID2
-    );
+
+    // On default, the groupIndexStat is set to the groupIndex of the selected employee
+    this.groupIndexStat = this.groupIndex;
+
     this.employeeIndex = await this.groupService.getEmployeeIndexByID(
       this.selectedEmployee.id,
       this.selectedEmployee.grID2,
@@ -91,27 +101,21 @@ export class EditEmployeeComponent implements OnInit {
     this.empStationsIndex = await this.groupService.getEmployeeStationsIndex(
       this.groupArr,
       this.selectedEmployee.grID2,
-      this.groupIndexEmp,
+      this.groupIndex,
       this.employeeIndex
     );
-    let stats: any[] = [];
-    let Obj = this.selectedEmployee.empStations;
-    for (let i = 0; i < Obj.length; i++) {
-      const grID3 = Obj[i].grID3;
-      const grIndex = await this.groupService.getGroupIndexByGroupID(grID3);
-      stats[grIndex] = [];
-      for (let j = 0; j < Obj[i].stations.length; j++)
-        stats[grIndex][j] = Obj[i].stations[j].status;
-    }
-    this.statusArray = stats;
   }
 
-  async changeStatus(groupIndexStat: number, z: number, GroupArr: Group[]) {
-    GroupArr[this.groupIndexEmp].employees[this.employeeIndex].empStations[
-      this.empStationsIndex
-    ].stations[z].status = !this.statusArray[groupIndexStat][z];
-    await this.groupService.setStorage('groups', GroupArr);
-    this.statusArray[groupIndexStat][z] = !this.statusArray[groupIndexStat][z];
+  async changeStatus(z: number) {
+    const groupArr = this.groupArr;
+
+    const employee = groupArr[this.groupIndex].employees[this.employeeIndex];
+    const empStations = employee.empStations[this.empStationsIndex];
+
+    const currentStatus = empStations.stations[z].status;
+    empStations.stations[z].status = !currentStatus;
+
+    await this.groupService.setStorage('groups', groupArr);
   }
 
   async loadGroupList() {
@@ -120,11 +124,11 @@ export class EditEmployeeComponent implements OnInit {
 
   async clickGroupIndex(index: number, group: Group[]) {
     this.groupIndexStat = index;
-    const grID = group[this.groupIndexStat].grID1;
+
     this.empStationsIndex = await this.groupService.getEmployeeStationsIndex(
       group,
-      grID,
-      this.groupIndexEmp,
+      group[index].grID1,
+      this.groupIndex,
       this.employeeIndex
     );
   }
@@ -143,6 +147,7 @@ export class EditEmployeeComponent implements OnInit {
       groupArray
     );
     groupArray[grIndex].employees[empIndex].name = this.employeeName;
+    groupArray[grIndex].employees[empIndex].api_key = this.api_key;
 
     await this.groupService.setStorage('groups', groupArray);
 

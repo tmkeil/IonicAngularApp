@@ -2,10 +2,12 @@
   <ion-button class="ion-margin-top ion-padding" expand="block" (click)="removeEmp()">Remove</ion-button>
   <ion-list class="optionList" [inset]="true">
     <ion-item class="optionItem">
+
       <ion-chip (click)="selectOption(0)" [ngClass]="clickedOption === 0 ? 'selected' : 'other'" [color]="'secondary'"
         [outline]="clickedOption === 0 ? 'false' : 'true'" class="chip-container ion-padding-horizontal">
         <ion-label class="chip-label">Ersetzen</ion-label>
       </ion-chip>
+
       <ion-chip (click)="selectOption(1)" [ngClass]="{
           'non-clickable-chip': colspan === 1,
           'selected': clickedOption === 1,
@@ -14,20 +16,16 @@
         class="chip-container ion-padding-horizontal">
         <ion-label class="chip-label">Hinzufügen</ion-label>
       </ion-chip>
+
     </ion-item>
   </ion-list>
 
   <ion-list [inset]="true">
-    <ion-list-header>
-      <ion-label>Replace</ion-label>
-    </ion-list-header>
     <ion-item-group *ngFor="let item of sortedEmps">
       <ion-item-divider sticky="true">
-        <ion-item>
           <ion-label>
-            <h2>{{item.groupName}}</h2>
+            Group: {{item.groupName}}
           </ion-label>
-        </ion-item>
       </ion-item-divider>
       <ion-list [inset]="true">
         <ion-item (click)="selectEmp(e)" *ngFor="let e of item.emps" [button]="true">

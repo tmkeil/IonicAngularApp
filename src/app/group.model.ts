@@ -7,6 +7,8 @@ export interface Station {
 
 export interface Employee {
     name: string;
+    api_key: string;
+    chat_id: number | null;
     id: number;
     avail: boolean;
     grID2: number;

@@ -77,6 +77,7 @@ export class EinteilungPage {
   }
 
   @ViewChild('tableRef', { static: true }) tableRef: ElementRef | undefined;
+  TableMatrix: any[] = [];
   Runden: number = 5;
   Groups: Group[] = [];
   paneEnabled = true;
@@ -93,7 +94,7 @@ export class EinteilungPage {
     this.modalCtrl
       .create({
         component: EinteilungsPreferencesModalComponent,
-        componentProps: { rounds: this.Runden },
+        componentProps: { rounds: this.Runden, matrix: this.TableMatrix , groups: this.Groups},
         initialBreakpoint: 0.5,
         breakpoints: [0, 0.5],
       })
@@ -124,7 +125,7 @@ export class EinteilungPage {
     tableHead.insertAdjacentHTML('beforeend', THRow);
 
     //TableMatrix füllen
-    let TableMatrix: any[] = [];
+    // let TableMatrix: any[] = [];
 
     for (let i = 0; i <= this.Runden; i++) {
       let zahl2 = 0;
@@ -133,9 +134,9 @@ export class EinteilungPage {
         if (i == 0) {
           //Für jede Station (Reihe) ein Array mit Runden (Spalten erstellen)
           for (let j = 0; j < this.Groups[z].stations.length; j++) {
-            TableMatrix[j + zahl2] = [];
+            this.TableMatrix[j + zahl2] = [];
             //i == 0 (Workplaces-Name)
-            TableMatrix[j + zahl2][i] = this.Groups[z].stations[j];
+            this.TableMatrix[j + zahl2][i] = this.Groups[z].stations[j];
           }
           zahl2 += this.Groups[z].stations.length;
         }
@@ -155,11 +156,11 @@ export class EinteilungPage {
         }
         if (i > 0) {
           for (let a = 0; a < this.Groups[z].stations.length; a++) {
-            TableMatrix[a + zahl3][i] = assignment[a];
+            this.TableMatrix[a + zahl3][i] = assignment[a];
           }
           for (let a = 0; a < this.Groups[z].stations.length; a++) {
-            if (TableMatrix[a + zahl3][i] == null) {
-              TableMatrix[a + zahl3][i] = '';
+            if (this.TableMatrix[a + zahl3][i] == null) {
+              this.TableMatrix[a + zahl3][i] = '';
             }
           }
           zahl3 += this.Groups[z].stations.length;
@@ -175,13 +176,13 @@ export class EinteilungPage {
     let reihe = 1;
     let indexStationInGroup = 0;
     let groupIndex = 0;
-    for (let i = 0; i < TableMatrix.length; i++) {
-      let assignedEmployee = `<td>${TableMatrix[i][0].name}</td>`;
+    for (let i = 0; i < this.TableMatrix.length; i++) {
+      let assignedEmployee = `<td>${this.TableMatrix[i][0].name}</td>`;
 
-      for (let j = 1; j < TableMatrix[i].length; j++) {
-        var data_assigned_employee_id = TableMatrix[i][j].id;
-        var data_assigned_employee_name = TableMatrix[i][j].name;
-        var grIDEmp = TableMatrix[i][j].grID2;
+      for (let j = 1; j < this.TableMatrix[i].length; j++) {
+        var data_assigned_employee_id = this.TableMatrix[i][j].id;
+        var data_assigned_employee_name = this.TableMatrix[i][j].name;
+        var grIDEmp = this.TableMatrix[i][j].grID2;
 
         let grIDStat =
           this.Groups[groupIndex].stations[indexStationInGroup].grID;
@@ -197,7 +198,7 @@ export class EinteilungPage {
         assignedEmployee += E;
       }
 
-      const employeeRow = `<tr station="${TableMatrix[i][0].id}">
+      const employeeRow = `<tr station="${this.TableMatrix[i][0].id}">
                             ${assignedEmployee}
                          </tr>`;
       tableBody.insertAdjacentHTML('beforeend', employeeRow);
@@ -498,8 +499,8 @@ export class EinteilungPage {
       }
     };
 
-    //Alle td Elemente der Tabelle loopen und nach dem Attribut 'clickC' schauen.
-    //Das Element mit einem clickC Attributs Wert von '1' ist das zuletzt geklickte TD.
+    //Nach dem Attribut 'clickC' schauen.
+    //Das Element mit einem clickC Wert '1' ist das zuletzt geklickte TD.
     let lastEl = checkClickC();
 
     const openExchangeEmpsModal = async (emps: Employee[], cspan: number) => {
@@ -628,15 +629,6 @@ export class EinteilungPage {
               newCell.setAttribute('reihe', reihe.toString());
               newCell.setAttribute('station', sta.toString());
               newCell.setAttribute('grIDStat', grSta.toString());
-              console.log('runde = ', runde);
-              console.log(
-                "parseInt(cell0.getAttribute('runde') || '-1', 10) = ",
-                parseInt(cell0.getAttribute('runde') || '-1', 10)
-              );
-              console.log(
-                "parseInt(cell2.getAttribute('runde') || '-1', 10) = ",
-                parseInt(cell2.getAttribute('runde') || '-1', 10)
-              );
               if (parseInt(cell0.getAttribute('runde') || '-1', 10) == runde) {
                 let emp = parseInt(cell0.getAttribute('employee') || '-1', 10);
                 let grEmp = parseInt(cell0.getAttribute('gridemp') || '-1', 10);
@@ -799,7 +791,6 @@ export class EinteilungPage {
                 this.Groups
               );
 
-              console.log('test: ', TDempID);
               let TDempIndex;
               let TDgroupIndex;
               let TDemp;

@@ -54,12 +54,13 @@ export class AddEmployeeComponent {
     const empStations = await this.groupService.getEmployeeStations();
     this.newEmp = {
       name: this.employeeName,
+      api_key: '',
+      chat_id: 0,
       id: newEmpID,
       avail: true,
       grID2: grID2,
       activeGroup: grID2,
       empStations: empStations
-
     }
 
     if (this.employeeName != null) {

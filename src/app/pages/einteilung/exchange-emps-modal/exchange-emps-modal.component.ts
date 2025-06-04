@@ -50,6 +50,7 @@ export class ExchangeEmpsModalComponent implements OnInit {
   clickedOption: number = 0;
 
   async ngOnInit() {
+    console.log("shjfdbvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv");
     this.Groups = await this.grService.getGList();
     this.sortedEmps = await this.sortEmps(this.exchangeEmps);
   }
@@ -62,11 +63,14 @@ export class ExchangeEmpsModalComponent implements OnInit {
   async sortEmps(
     emps: Employee[]
   ): Promise<{ groupName: string; groupID: number; emps: Employee[] }[]> {
+
     let sorted: {
       groupName: string;
       groupID: number;
       emps: Employee[];
     }[] = [];
+
+    console.log("emps: ", JSON.parse(JSON.stringify(emps)));
 
     for (let i = 0; i < emps.length; i++) {
       let group = sorted.find((g) => g.groupID === emps[i].grID2);
@@ -82,7 +86,6 @@ export class ExchangeEmpsModalComponent implements OnInit {
       }
       group.emps.push(emps[i]);
     }
-
     return sorted;
   }
 

@@ -21,6 +21,13 @@
     </ion-item>
   </ion-list>
 
+  <ion-list inset="true">
+    <ion-item class="ion-margin-bottom">
+      <ion-input [(ngModel)]="api_key" placeholder="123456:ABCdef..." label="Telegram API Key"
+        labelPlacement="floating"></ion-input>
+    </ion-item>
+  </ion-list>
+
   <ion-list inset="true" lines="none" class="chip-list">
     <ion-item class="chip-item">
       <swiper-container #swiper class="swiper" *ngIf="groupArr!==undefined"
@@ -38,9 +45,12 @@
   </ion-list>
 
   <ion-list inset="true" *ngIf="groupArr!==undefined && groupIndexStat !== undefined">
-    <ion-item (click)="changeStatus(groupIndexStat, z, groupArr)" *ngFor="let a of groupArr[groupIndexStat].stations; let z = index">
-      <ion-checkbox [(ngModel)]="statusArray[groupIndexStat][z]"
-        slot="start"></ion-checkbox>
+    <ion-item *ngFor="let a of groupArr[groupIndexStat].stations; let z = index">
+      <ion-checkbox
+        slot="start"
+        [checked]="selectedEmployee.empStations[groupIndexStat].stations[z].status"
+        (ionChange)="changeStatus(z)">
+      </ion-checkbox>
       {{a.name}}
     </ion-item>
   </ion-list>

@@ -1,18 +1,22 @@
-<ion-content>
+<ion-content color="light">
   <ion-button (click)="einteilung()" class="ion-margin-top ion-padding" expand="block">
     Assign
   </ion-button>
 
-  <ion-card>
-    <ion-card-content class="test">
-      <ion-item class="item">
+  <ion-list inset="true">
+    <ion-item lines="none">
+      <div class="item-flex">
         <ion-label>Rounds:</ion-label>
         <div class="counter-container">
           <ion-button fill="clear" (click)="decreaseValue()">&#x25BC;</ion-button>
           <ion-input class="number-input" type="number" [value]="value" readonly></ion-input>
           <ion-button fill="clear" (click)="increaseValue()">&#x25B2;</ion-button>
         </div>
-      </ion-item>
-    </ion-card-content>
-  </ion-card>
+      </div>
+    </ion-item>
+  </ion-list>
+
+  <ion-button class="ion-margin-top ion-padding" expand="block" (click)="sendTelegramMessages()">
+    Send Telegram Messages
+  </ion-button>
 </ion-content>

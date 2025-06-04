@@ -123,7 +123,7 @@ export class EmployeeGrListPage implements OnInit {
         this.GroupList[grIndexOfEmployee].employees[empIndex].empStations[empStationsIndex].stations[i].status = false;
       }
     }
-    this.groupService.setStorage('groups', this.GroupList);
+    await this.groupService.setStorage('groups', this.GroupList);
     this.changeDetector.detectChanges();
   }
 
