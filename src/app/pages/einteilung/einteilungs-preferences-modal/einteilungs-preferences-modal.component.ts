@@ -57,9 +57,12 @@ export class EinteilungsPreferencesModalComponent implements OnInit {
 
 
   async sendTelegramMessages() {
-    console.log(JSON.parse(JSON.stringify(this.groups)));
+    console.log("\ntrying to send telegram messages");
     const employee_station_pairs = await this.groupService.getEmployeeStationPairs(this.matrix, this.groups);
     const assignedEmployees = employee_station_pairs.map(pair => pair.emp);
+
+    console.log("assignedEmployees: ", JSON.parse(JSON.stringify(assignedEmployees)));
+    console.log("employee_station_pairs: ", JSON.parse(JSON.stringify(employee_station_pairs)));
 
     await this.groupService.getChatIds(assignedEmployees);
     await this.groupService.sendTelegramMessages(employee_station_pairs);

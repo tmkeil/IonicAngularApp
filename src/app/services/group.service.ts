@@ -359,25 +359,26 @@ export class GroupService {
   }
 
   async getChatIds(assignedEmployees: Employee[]) {
-    console.log('getting the ids');
+    console.log('\ngetting the ids');
 
     for (const emp of assignedEmployees) {
-      if (emp.chat_id === 0) {
+      console.log('der emp name ist: ', emp.name, ' und die chat_id key ist: ', emp.chat_id);
+      if (emp.chat_id == 0 || emp.chat_id == null || emp.chat_id == undefined) {
+        console.log("Die Chat ID ist 0, also hole sie jetzt für: ", emp.name);
         emp.chat_id = await this.fetchChatId(emp.api_key);
-        console.log('Die Chat ID ist: ', emp.chat_id);
+        console.log('Die Chat ID ist: ', emp.chat_id, '\n');
       }
     }
   }
 
   async sendTelegramMessages(employee_station_pairs: any[]) {
-    console.log('test send message');
+    console.log("\n\nSending Telegram messages...");
     for (const pair of employee_station_pairs) {
       const emp = pair.emp;
       const assigned = pair.assigned;
 
-      console.log('die emp api key ist: ', emp.api_key);
+      console.log('der emp api key ist: ', emp.api_key);
       console.log('die emp chat id ist: ', emp.chat_id);
-      console.log("assigned: ", JSON.parse(JSON.stringify(assigned)));
       if (emp.chat_id && emp.chat_id !== 0) {
         const message =
           `Hello ${emp.name},\n\nYou are assigned to the following workstations:\n` +
