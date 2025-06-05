@@ -69,13 +69,22 @@ This app is ideal for organizations that:
 
 ## 🖼️ Screenshots
 
-<p float="left">
-  <img src="screenshots/1.JPG" width="250" />
-</p>
+| Screenshot | Beschreibung |
+|-----------|--------------|
+| ![1](screenshots/1.jpg) | **Gruppenübersicht** – Auf dem Homescreen werden alle erstellten Gruppen übersichtlich aufgelistet. Jede Gruppe kann geöffnet, gespeichert oder gelöscht werden. |
+| ![2](screenshots/2.jpg) | **Gruppe erstellen** – Ein Modal ermöglicht das Anlegen einer neuen Gruppe, in der anschließend Mitarbeiter und Stationen verwaltet werden können. |
+| ![3](screenshots/3.jpg) | **Gruppe speichern** – Durch ein Wischen nach rechts auf einer Gruppenkarte erscheint ein Speichern-Button. Die Gruppe kann als JSON-Datei exportiert werden. |
+| ![5](screenshots/5.jpg) | **Gruppe löschen** – Ein Wischen nach links zeigt ein rotes Papierkorb-Symbol, mit dem man die Gruppe löschen kann. |
+| ![6](screenshots/6.jpg) | **Floating Action Button** – Durch Klick auf den runden Button unten rechts erscheinen Optionen zum Erstellen einer neuen Gruppe oder zum Importieren einer bestehenden JSON-Datei. |
+| ![7](screenshots/7.jpg) | **Mitarbeiterliste** – Zeigt alle Mitarbeiter der Gruppe sowie externe Mitarbeiter, die mindestens eine Station in dieser Gruppe beherrschen. Mitarbeiter sind nach ihrer ursprünglichen Gruppe sortiert und lassen sich durch Wischen löschen. |
+| ![8](screenshots/8.jpg) | **Stationsliste** – Übersicht über alle Stationen einer Gruppe. Diese können hinzugefügt, bearbeitet oder gelöscht werden. |
+| ![9](screenshots/9.jpg) | **Zuweisungstabelle** – Zeigt, welcher Mitarbeiter an welcher Station eingeteilt ist. Durch Antippen eines Mitarbeiters werden alle Stationen markiert, an denen er arbeitet. Tauschaktionen werden visuell hervorgehoben. |
+| ![10](screenshots/10.jpg) | **Mitarbeiter ersetzen** – Durch Doppelklick öffnet sich ein Modal mit verfügbaren, nicht eingeteilten Mitarbeitern, die die aktuelle Station übernehmen können. |
+| ![12](screenshots/12.jpg) | **Optionen für neue Zuweisung und Telegram-Versand** – Hier kann eine neue automatische Zuweisung gestartet und Telegram-Nachrichten an die Mitarbeiter gesendet werden, um sie über ihre Stationen zu informieren. |
 
 ---
 
 ## 🧑‍💻 Author
 
-Built with ❤️ by Me for use for colleges at the assembly line at Mercedes-Benz.
+Built with ❤️ by Me for for colleges on the assembly line at Mercedes-Benz.
 
