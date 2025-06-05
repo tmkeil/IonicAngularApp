@@ -69,8 +69,6 @@ This app is ideal for organizations that:
 
 ## 🖼️ Screenshots
 
-*(Optional – hier nur einfügen, wenn du es möchtest)*
-
 <p float="left">
   <img src="screenshots/home.png" width="250" />
   <img src="screenshots/group-creation.png" width="250" />
@@ -81,5 +79,5 @@ This app is ideal for organizations that:
 
 ## 🧑‍💻 Author
 
-Built with ❤️ by [Tobias Keil] for use in a real-world setting at Mercedes-Benz.
+Built with ❤️ by Me for use for colleges at the assembly line at Mercedes-Benz.
 
