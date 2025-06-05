@@ -69,6 +69,8 @@ This app is ideal for organizations that:
 
 ## 🖼️ Screenshots
 
+![Employee List](screenshots/7.jpg)
+
 ### 1. Group Overview Screen  
 A clean homepage listing all created groups. Each group contains employees and stations for assignment.  
 ![Group List](screenshots/1.jpg)
