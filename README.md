@@ -69,51 +69,51 @@ This app is ideal for organizations that:
 
 ## 🖼️ Screenshots
 
-![Employee List](screenshots/7.jpg)
+![Employee List](screenshots/7.JPG)
 
 ### 1. Group Overview Screen  
 A clean homepage listing all created groups. Each group contains employees and stations for assignment.  
-![Group List](screenshots/1.jpg)
+![Group List](screenshots/1.JPG)
 
 ### 2. Create Group Modal  
 A modal dialog allows users to create a new group by providing a name and adding members and stations.  
-![Create Group Modal](screenshots/2.jpg)
+![Create Group Modal](screenshots/2.JPG)
 
 ### 3. Save Group as JSON  
 Swiping a group card to the right reveals a save icon. This exports the group data as a JSON file.  
-![Save Group](screenshots/3.jpg)
+![Save Group](screenshots/3.JPG)
 
 ### 4. Delete Group Option  
 Swiping a group card to the left shows a red trash icon, allowing users to delete the group.  
-![Delete Group](screenshots/5.jpg)
+![Delete Group](screenshots/5.JPG)
 
 ### 5. FAB Menu: Add or Load Group  
 Tapping the floating action button reveals options to create a new group or import one from a JSON file.  
-![FAB Options](screenshots/6.jpg)
+![FAB Options](screenshots/6.JPG)
 
 ### 6. Employee List in Group  
 Displays all employees in a group, including cross-group employees who can work stations in this group.  
 Employees are grouped by their original group name. Swiping left deletes them.  
-![Employee List](screenshots/7.jpg)
+![Employee List](screenshots/7.JPG)
 
 ### 7. Station List in Group  
 Lists all workstations defined for a specific group. These are used during the assignment process.  
-![Station List](screenshots/8.jpg)
+![Station List](screenshots/8.JPG)
 
 ### 8. Assignment Table  
 The main scheduling interface showing assigned employees per round and station.  
 Clicking an employee highlights them across rounds and shows valid swap options in green.  
 Clicking again swaps the two employees.  
-![Assignment Table](screenshots/9.jpg)
+![Assignment Table](screenshots/9.JPG)
 
 ### 9. Replacement Modal  
 Double-clicking an employee opens a modal showing unassigned coworkers who could replace them.  
 Selecting one reassigns that employee in the current round.  
-![Replacement Modal](screenshots/10.jpg)
+![Replacement Modal](screenshots/10.JPG)
 
 ### 10. Assignment & Telegram Options  
 A modal offering two key actions: auto-assign employees to stations, and send each assigned employee their shift via Telegram.  
-![Options Modal](screenshots/12.jpg)
+![Options Modal](screenshots/12.JPG)
 
 (screenshots/1.jpg)
 | Screenshot | Beschreibung |
