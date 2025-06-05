@@ -69,69 +69,23 @@ This app is ideal for organizations that:
 
 ## 🖼️ Screenshots
 
-![Employee List](screenshots/7.JPG)
+| Screenshot | Description |
+|-----------|-------------|
+| ![1](screenshots/1.JPG) | **Group Overview** – The home screen displays all created groups in a clear list. Each group can be opened, saved, or deleted. |
+| ![2](screenshots/2.JPG) | **Create Group** – A modal allows you to create a new group where employees and stations can be managed. |
+| ![3](screenshots/3.JPG) | **Save Group** – Swiping right on a group card reveals a save button. The group can be exported as a JSON file. |
+| ![5](screenshots/5.JPG) | **Delete Group** – Swiping left shows a red trash icon to delete the group. |
+| ![6](screenshots/6.JPG) | **Floating Action Button** – Clicking the round button at the bottom right opens options to create a new group or import one from a JSON file. |
+| ![7](screenshots/7.JPG) | **Employee List** – Displays all employees in the group, plus external ones qualified to work in at least one of the group’s stations. Employees are grouped by their original group and can be deleted by swiping. |
+| ![8](screenshots/8.JPG) | **Station List** – Overview of all stations in a group. Stations can be added, edited, or deleted. |
+| ![9](screenshots/9.JPG) | **Assignment Table** – Shows which employee is assigned to which station. Tapping an employee highlights all their assignments and indicates potential swap partners. Swaps are done by simply tapping. |
+| ![10](screenshots/10.JPG) | **Replace Employee** – Double-clicking an employee opens a modal showing available, unassigned employees who can replace the current one at that station. |
+| ![12](screenshots/12.JPG) | **Options for Assignment and Telegram Messages** – Start a new automatic assignment or send Telegram messages to inform each employee about their station. |
 
-### 1. Group Overview Screen  
-A clean homepage listing all created groups. Each group contains employees and stations for assignment.  
-![Group List](screenshots/1.JPG)
-
-### 2. Create Group Modal  
-A modal dialog allows users to create a new group by providing a name and adding members and stations.  
-![Create Group Modal](screenshots/2.JPG)
-
-### 3. Save Group as JSON  
-Swiping a group card to the right reveals a save icon. This exports the group data as a JSON file.  
-![Save Group](screenshots/3.JPG)
-
-### 4. Delete Group Option  
-Swiping a group card to the left shows a red trash icon, allowing users to delete the group.  
-![Delete Group](screenshots/5.JPG)
-
-### 5. FAB Menu: Add or Load Group  
-Tapping the floating action button reveals options to create a new group or import one from a JSON file.  
-![FAB Options](screenshots/6.JPG)
-
-### 6. Employee List in Group  
-Displays all employees in a group, including cross-group employees who can work stations in this group.  
-Employees are grouped by their original group name. Swiping left deletes them.  
-![Employee List](screenshots/7.JPG)
-
-### 7. Station List in Group  
-Lists all workstations defined for a specific group. These are used during the assignment process.  
-![Station List](screenshots/8.JPG)
-
-### 8. Assignment Table  
-The main scheduling interface showing assigned employees per round and station.  
-Clicking an employee highlights them across rounds and shows valid swap options in green.  
-Clicking again swaps the two employees.  
-![Assignment Table](screenshots/9.JPG)
-
-### 9. Replacement Modal  
-Double-clicking an employee opens a modal showing unassigned coworkers who could replace them.  
-Selecting one reassigns that employee in the current round.  
-![Replacement Modal](screenshots/10.JPG)
-
-### 10. Assignment & Telegram Options  
-A modal offering two key actions: auto-assign employees to stations, and send each assigned employee their shift via Telegram.  
-![Options Modal](screenshots/12.JPG)
-
-(screenshots/1.jpg)
-| Screenshot | Beschreibung |
-|-----------|--------------|
-| ![1](screenshots/1.JPG) | **Gruppenübersicht** – Auf dem Homescreen werden alle erstellten Gruppen übersichtlich aufgelistet. Jede Gruppe kann geöffnet, gespeichert oder gelöscht werden. |
-| ![2](screenshots/2.JPG) | **Gruppe erstellen** – Ein Modal ermöglicht das Anlegen einer neuen Gruppe, in der anschließend Mitarbeiter und Stationen verwaltet werden können. |
-| ![3](screenshots/3.JPG) | **Gruppe speichern** – Durch ein Wischen nach rechts auf einer Gruppenkarte erscheint ein Speichern-Button. Die Gruppe kann als JSON-Datei exportiert werden. |
-| ![5](screenshots/5.JPG) | **Gruppe löschen** – Ein Wischen nach links zeigt ein rotes Papierkorb-Symbol, mit dem man die Gruppe löschen kann. |
-| ![6](screenshots/6.JPG) | **Floating Action Button** – Durch Klick auf den runden Button unten rechts erscheinen Optionen zum Erstellen einer neuen Gruppe oder zum Importieren einer bestehenden JSON-Datei. |
-| ![7](screenshots/7.JPG) | **Mitarbeiterliste** – Zeigt alle Mitarbeiter der Gruppe sowie externe Mitarbeiter, die mindestens eine Station in dieser Gruppe beherrschen. Mitarbeiter sind nach ihrer ursprünglichen Gruppe sortiert und lassen sich durch Wischen löschen. |
-| ![8](screenshots/8.JPG) | **Stationsliste** – Übersicht über alle Stationen einer Gruppe. Diese können hinzugefügt, bearbeitet oder gelöscht werden. |
-| ![9](screenshots/9.JPG) | **Zuweisungstabelle** – Zeigt, welcher Mitarbeiter an welcher Station eingeteilt ist. Durch Antippen eines Mitarbeiters werden alle Stationen markiert, an denen er arbeitet. Tauschaktionen werden visuell hervorgehoben. |
-| ![10](screenshots/10.JPG) | **Mitarbeiter ersetzen** – Durch Doppelklick öffnet sich ein Modal mit verfügbaren, nicht eingeteilten Mitarbeitern, die die aktuelle Station übernehmen können. |
-| ![12](screenshots/12.JPG) | **Optionen für neue Zuweisung und Telegram-Versand** – Hier kann eine neue automatische Zuweisung gestartet und Telegram-Nachrichten an die Mitarbeiter gesendet werden, um sie über ihre Stationen zu informieren. |
 
 ---
 
 ## 🧑‍💻 Author
 
-Built with ❤️ by Me for for colleges on the assembly line at Mercedes-Benz.
+Built with ❤️ by Me for use by colleagues at the assembly line at Mercedes-Benz.
 
