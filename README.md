@@ -81,7 +81,7 @@ This app is ideal for organizations that:
 | ![9](screenshots/9.JPG) | **Assignment Table** – Shows which employee is assigned to which station. Tapping an employee highlights all their assignments and indicates potential swap partners. Swaps are done by simply tapping. |
 | ![10](screenshots/10.JPG) | **Replace Employee** – Double-clicking an employee opens a modal showing available, unassigned employees who can replace the current one at that station. |
 | ![12](screenshots/12.JPG) | **Options for Assignment and Telegram Messages** – Start a new automatic assignment or send Telegram messages to inform each employee about their station. |
-
+| ![preview](screenshots/preview.gif) | **Live Preview** – An animated demonstration of how the app works, showing typical workflows and interactions. |
 
 ---
 
