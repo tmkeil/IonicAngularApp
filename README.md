@@ -70,7 +70,7 @@ This app is ideal for organizations that:
 ## 🖼️ Screenshots
 
 <p float="left">
-  <img src="screenshots/home.png" width="250" />
+  <img src="screenshots/1.jpg" width="250" />
   <img src="screenshots/group-creation.png" width="250" />
   <img src="screenshots/assignment.png" width="250" />
 </p>
