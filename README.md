@@ -1,51 +1,85 @@
-# Workforce Assignment App  
+# Workforce Assignment App
 
-An intuitive workforce management application designed to assign employees to workstations in an assembly line setting. The app ensures that no station is left unattended while providing flexibility to adapt to real-time changes.  
+An intuitive workforce management application designed to assign employees to workstations in an assembly line setting. The app ensures that no station is left unattended while providing flexibility to adapt to real-time changes.
 
 ---
 
-## **Features**  
+## 🚀 Features
 
-### **1. Group and Station Management**  
-- 🛠️ **Group Creation**:  
+### 🧑‍🔧 Group and Station Management
+- **Group Creation**:  
   Users can create groups and assign employees and stations to each group.  
-- 🧑‍💼 **Skill Management**:  
-  Define which stations within the group and in other groups each employee can operate.  
+- **Skill Management**:  
+  Define which stations each employee can operate – within and across groups.  
 
-### **2. Assignment Automation**  
-- 🤖 **Automatic Assignments**:  
-  Employees are automatically assigned to stations based on their availability and skills when the "Assign" button is clicked.  
-- 🎯 **Selective Group Assignments**:  
-  Select which groups should be included in the assignment process for greater control.  
+### ⚙️ Assignment Automation
+- **Automatic Assignments**:  
+  Employees are automatically assigned to stations based on availability and skills.  
+- **Selective Group Assignments**:  
+  Choose which groups should be included in the assignment process.  
 
-### **3. Employee Availability**  
-- ✅ **Toggle Availability**:  
-  Easily mark employees as available or unavailable. Unavailable employees are excluded from the automatic assignment process.  
+### 📅 Employee Availability
+- **Toggle Availability**:  
+  Mark employees as available or unavailable with a simple toggle.  
 
-### **4. Shift Round Management**  
-- 🔄 **Swap Employees**:  
-  - In the assignment table, employees can be swapped within a round.  
-  - Select an employee to see which other employees in the same round can swap with them (highlighted in green).  
-  - Swaps are allowed only if both employees can work at each other’s stations.  
-- ➕ **Add Unassigned Employees**:  
-  - Double-click an employee in the list to open a modal.  
-  - Assign employees who are not currently scheduled for the round.  
-  - View and optionally assign unavailable employees.  
+### 🔄 Shift Round Management
+- **Swap Employees**:  
+  Swap employees within a round if both can operate each other's stations.  
+- **Add Unassigned Employees**:  
+  Easily assign unassigned or even unavailable employees using a modal.  
 
-### **5. Intuitive Interface**  
-- 📊 **Interactive Views**:  
-  A clear and interactive table displays the current assignments.  
-- ⚙️ **Flexible Adjustments**:  
-  Make real-time adjustments to assignments as needed.  
+### 📲 Telegram Messaging Integration
+- **Automatic Telegram Notifications**:  
+  After assigning employees, the app can automatically send each one a personalized Telegram message showing where they are scheduled to work.  
+  This helps improve communication and ensures everyone is informed instantly.
+
+### 🖥️ Intuitive Interface
+- **Interactive Assignment Table**:  
+  Real-time adjustments and a clear overview of all shifts and stations.  
+- **Clean and Responsive Design**:  
+  The UI adapts to mobile and desktop environments.
+
+---
+
+## 💡 Use Case
+
+This app is ideal for organizations that:
+- Manage rotating staff across multiple workstations (e.g. automotive production lines)
+- Need a fast way to react to daily staffing changes
+- Want to improve transparency and communication with their workforce
 
 ---
 
-## **Use Case**  
-This app is ideal for organizations managing multiple workstations and shift rounds, such as:  
-- Assembly lines in manufacturing.  
-- Teams with rotating tasks or roles.  
-- Situations requiring real-time staff adjustments.  
+## ⚙️ Tech Stack
 
-The app helps ensure efficient staffing while offering flexibility to address unforeseen circumstances, such as sudden employee unavailability or last-minute station changes.  
+- **Ionic Framework**: For building a native-like app that runs on Android, iOS, and the Web  
+- **Angular**: The core frontend framework used for structure and components  
+- **TypeScript**: Strongly typed JavaScript that powers the app logic  
+- **Capacitor**: Used to package the web app into native mobile apps  
+- **Firebase Hosting**: For web deployment  
+- **Telegram Bot API**: For sending automatic employee notifications  
 
 ---
+
+## 🌍 Try it out
+
+> 🔗 [Open the App in Your Browser](https://workforceassignment.firebaseapp.com)
+
+---
+
+## 🖼️ Screenshots
+
+*(Optional – hier nur einfügen, wenn du es möchtest)*
+
+<p float="left">
+  <img src="screenshots/home.png" width="250" />
+  <img src="screenshots/group-creation.png" width="250" />
+  <img src="screenshots/assignment.png" width="250" />
+</p>
+
+---
+
+## 🧑‍💻 Author
+
+Built with ❤️ by [Tobias Keil] for use in a real-world setting at Mercedes-Benz.
+
